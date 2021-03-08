@@ -1,0 +1,47 @@
+/* Search */
+
+.Search input.form-control {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1.25rem;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  padding: 20px;
+  transition: 200ms;
+}
+
+.Search input.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.Search input.form-control:hover::placeholder {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.Search input.form-control:hover,
+.Search input.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.Search .input-group button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1.25rem;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  left: 1px;
+}
+
+.Search .input-group button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.Search button.search-city {
+  left: 1px;
+}
+
+.Search button.geolocate {
+  left: 2px;
+}

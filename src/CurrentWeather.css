@@ -1,0 +1,60 @@
+.CurrentWeather {
+  background-color: white;
+  border-radius: 1.25rem;
+  margin: 2rem 0 1rem 0;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.CurrentWeather .now {
+  margin-bottom: 1rem;
+}
+
+.CurrentWeather .city {
+  color: #3d4a77;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.CurrentWeather h2.date-time {
+  color: gray;
+  font-size: 0.5rem;
+  letter-spacing: 0.05rem;
+  margin-top: 0;
+  padding-left: 3px;
+  padding-top: 0;
+  text-transform: uppercase;
+}
+
+.CurrentWeather .current-weather-icon {
+  color: pink;
+  font-size: 270px;
+  left: -155px;
+  opacity: 25%;
+  position: absolute;
+  top: -120px;
+}
+
+.CurrentWeather .current-temperature {
+  color: #3d4a77;
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: right;
+}
+
+.CurrentWeather .current-weather-details {
+  /* Most of this is the same as the date and time so might be worth finding a way to merge them*/
+  color: gray;
+  font-size: 0.5rem;
+  letter-spacing: 0.05rem;
+  line-height: 1.8;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 3px;
+  padding-top: 3px;
+  text-transform: uppercase;
+}

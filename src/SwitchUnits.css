@@ -1,0 +1,22 @@
+/* Switch between celsius and fahrenheit */
+/* Note that the formatting of this button is that of the forecast above it and it's not ideal for them to be interlinked like that... will need to sort out before final submission */
+
+.SwitchUnits {
+  cursor: pointer;
+}
+
+.SwitchUnits h4 {
+  font-size: 0.75rem;
+  text-align: center;
+  color: white;
+  font-weight: 300;
+  border-radius: 1.25rem;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  transition: 200ms;
+  letter-spacing: 0.05rem;
+}
+
+.SwitchUnits h4:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

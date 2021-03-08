@@ -1,0 +1,42 @@
+.Forecast {
+  color: white;
+  font-weight: 300;
+}
+
+.Forecast .row {
+  border-radius: 1.25rem;
+  padding: 0.5rem 0;
+  transition: 200ms;
+}
+
+.Forecast .row:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.Forecast h3,
+.Forecast h4 {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  margin-top: 0.5rem;
+}
+
+.Forecast .icon {
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+.Forecast .min-max {
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+}
+
+.Forecast .min-max span {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.Forecast .min {
+  color: rgba(255, 255, 255, 0.5);
+}
