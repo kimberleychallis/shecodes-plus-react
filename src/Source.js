@@ -6,7 +6,7 @@ export default function Source() {
   return (
     <div className="Source">
       <a
-        href="https://github.com/kimberleychallis/SheCodes-Plus-Project"
+        href="https://github.com/kimberleychallis/shecodes-plus-react"
         target="_blank"
         rel="noreferrer"
       >
