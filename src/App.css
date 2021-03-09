@@ -11,3 +11,10 @@ body {
   max-width: 500px;
   padding: 3rem 2.25rem 1.75rem 2.25rem;
 }
+
+.source {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.75rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
