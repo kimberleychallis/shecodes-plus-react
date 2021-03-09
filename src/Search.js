@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./Search.css";
 
 export default function Search() {
   // const [searchString, setSearchString] = useState(""); ALSO remember to import UseState again
 
-  function handleSearch(event) {}
+  const apiKey = "3e11ec91583e0c90e17fc5eef84e88aa";
+  const apiURLCurrentWeather =
+    "https://api.openweathermap.org/data/2.5/weather?";
+  // const apiURLForecast = "https://api.openweathermap.org/data/2.5/onecall?";
+  const apiSearchString =
+    "${apiURLCurrentWeather}q=CITY&appid=${apiKey}&units=metric";
+
+  function handleSearch(event) {
+    event.preventDefault();
+    const city = "";
+  }
 
   return (
     <form className="Search" onSubmit={handleSearch}>
