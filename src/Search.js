@@ -3,7 +3,7 @@ import React from "react";
 import "./Search.css";
 
 export default function Search() {
-  // const [searchString, setSearchString] = useState(""); ALSO remember to import UseState
+  // const [searchString, setSearchString] = useState(""); ALSO remember to import UseState again
 
   function handleSearch(event) {}
 
