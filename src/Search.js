@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./Search.css";
 
 export default function Search() {
-  const [searchString, setSearchString] = useState("");
+  // const [searchString, setSearchString] = useState(""); ALSO remember to import UseState
 
   function handleSearch(event) {}
 
