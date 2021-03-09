@@ -8,18 +8,20 @@ import "./App.css";
 
 export default function App() {
   return (
-    <div className="App">
-      <div className="app shadow-lg">
-        <Search />
+    <div className="container">
+      <div className="App">
+        <div className="app shadow-lg">
+          <Search />
 
-        <CurrentWeather />
+          <CurrentWeather />
 
-        <Forecast />
+          <Forecast />
 
-        <SwitchUnits />
+          <SwitchUnits />
+        </div>
+
+        <Source />
       </div>
-
-      <Source />
     </div>
   );
 }
