@@ -67,7 +67,7 @@ export default function Search() {
       </div>
     );
   } else {
-    const city = `London`; // need to set from actual form
+    const city = `Ealing`; // need to set from actual form
     const apiKey = `3e11ec91583e0c90e17fc5eef84e88aa`;
     const apiURLCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?`;
     const apiSearchString = `${apiURLCurrentWeather}q=${city}&appid=${apiKey}&units=metric`;
