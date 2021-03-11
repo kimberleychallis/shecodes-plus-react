@@ -34,6 +34,7 @@ export default function Search() {
     setWeatherData({
       ready: true,
       name: response.data.name,
+      dateTime: (response.data.dt + response.data.timezone) * 1000,
       temperature: response.data.main.temp,
       feelsLike: response.data.main.feels_like,
       description: response.data.weather[0].description,
@@ -55,6 +56,7 @@ export default function Search() {
         <div>
           <CurrentWeather
             cityName={weatherData.name}
+            dateTime={weatherData.dateTime}
             temperature={weatherData.temperature}
             feelsLike={weatherData.feelsLike}
             description={weatherData.description}

@@ -1,4 +1,5 @@
 import React from "react";
+import FormattedDate from "./FormattedDate";
 
 import "./CurrentWeather.css";
 
@@ -11,7 +12,9 @@ export default function CurrentWeather(props) {
             <h1 className="city">{props.cityName}</h1>
           </div>
           <div>
-            <h2 className="date-time">Thursday, 4 March 2021 18:04</h2>
+            <h2 className="date-time">
+              <FormattedDate rawDateTime={props.dateTime} />
+            </h2>
           </div>
         </div>
 
