@@ -9,11 +9,11 @@ export default function CurrentWeather(props) {
       <div className="row now">
         <div className="col-10">
           <div>
-            <h1 className="city">{props.cityName}</h1>
+            <h1 className="city">{props.data.name}</h1>
           </div>
           <div>
             <h2 className="date-time">
-              <FormattedDate rawDateTime={props.dateTime} />
+              <FormattedDate rawDateTime={props.data.dateTime} />
             </h2>
           </div>
         </div>
@@ -27,15 +27,15 @@ export default function CurrentWeather(props) {
       <div className="row temps">
         <div className="col">
           <ul className="current-weather-details">
-            <li>{props.description}</li>
-            <li>Feels like {Math.round(props.feelsLike)}°</li>
-            <li>Humidity: {props.humidity}%</li>
-            <li>Wind: {Math.round(props.wind)}KM/HR</li>
+            <li>{props.data.description}</li>
+            <li>Feels like {Math.round(props.data.feelsLike)}°</li>
+            <li>Humidity: {props.data.humidity}%</li>
+            <li>Wind: {Math.round(props.data.wind)}KM/HR</li>
           </ul>
         </div>
         <div className="col">
           <div className="current-temperature">
-            {Math.round(props.temperature)}°
+            {Math.round(props.data.temperature)}°
           </div>
         </div>
       </div>

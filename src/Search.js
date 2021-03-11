@@ -40,6 +40,7 @@ export default function Search() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      icon: response.data.weather[0].id,
     });
   }
 
@@ -54,15 +55,7 @@ export default function Search() {
         <div>{searchForm}</div>
 
         <div>
-          <CurrentWeather
-            cityName={weatherData.name}
-            dateTime={weatherData.dateTime}
-            temperature={weatherData.temperature}
-            feelsLike={weatherData.feelsLike}
-            description={weatherData.description}
-            humidity={weatherData.humidity}
-            wind={weatherData.wind}
-          />
+          <CurrentWeather data={weatherData} />
         </div>
       </div>
     );
