@@ -1,25 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import CurrentWeather from "./CurrentWeather";
 
 import "./Search.css";
 
 export default function Search() {
-  // const [searchString, setSearchString] = useState(""); ALSO remember to import UseState again
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
-  const apiKey = "3e11ec91583e0c90e17fc5eef84e88aa";
-  const apiURLCurrentWeather =
-    "https://api.openweathermap.org/data/2.5/weather?";
-  // const apiURLForecast = "https://api.openweathermap.org/data/2.5/onecall?";
-  const apiSearchString =
-    "${apiURLCurrentWeather}q=CITY&appid=${apiKey}&units=metric";
-
-  function handleSearch(event) {
-    event.preventDefault();
-    const city = "";
-  }
-
-  return (
-    <form className="Search" onSubmit={handleSearch}>
+  const searchForm = (
+    <form className="Search">
       <div className="input-group">
         <input
           type="text"
@@ -40,4 +29,49 @@ export default function Search() {
       </div>
     </form>
   );
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      name: response.data.name,
+      temperature: response.data.main.temp,
+      feelsLike: response.data.main.feels_like,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+    });
+  }
+
+  // function handleSearch(event) {
+  //   // event.preventDefault();
+  //   // console.log("handle search");
+  // }
+
+  if (weatherData.ready) {
+    return (
+      <div>
+        <div>{searchForm}</div>
+
+        <div>
+          <CurrentWeather
+            cityName={weatherData.name}
+            temperature={weatherData.temperature}
+            feelsLike={weatherData.feelsLike}
+            description={weatherData.description}
+            humidity={weatherData.humidity}
+            wind={weatherData.wind}
+          />
+        </div>
+      </div>
+    );
+  } else {
+    const city = `London`; // need to set from actual form
+    const apiKey = `3e11ec91583e0c90e17fc5eef84e88aa`;
+    const apiURLCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?`;
+    const apiSearchString = `${apiURLCurrentWeather}q=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiSearchString).then(handleResponse);
+
+    return searchForm;
+  }
 }

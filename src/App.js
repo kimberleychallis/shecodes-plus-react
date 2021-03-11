@@ -1,5 +1,5 @@
 import Search from "./Search";
-import CurrentWeather from "./CurrentWeather";
+
 import Forecast from "./Forecast";
 import SwitchUnits from "./SwitchUnits";
 
@@ -11,8 +11,6 @@ export default function App() {
       <div className="App">
         <div className="app shadow-lg">
           <Search />
-
-          <CurrentWeather />
 
           <Forecast />
 
