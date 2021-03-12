@@ -4,11 +4,12 @@ import CurrentWeather from "./CurrentWeather";
 
 import "./Search.css";
 
-export default function Search() {
+export default function Search(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   const searchForm = (
-    <form className="Search">
+    <form className="Search" onSubmit={handleSearch}>
       <div className="input-group">
         <input
           type="text"
@@ -44,10 +45,12 @@ export default function Search() {
     });
   }
 
-  // function handleSearch(event) {
-  //   // event.preventDefault();
-  //   // console.log("handle search");
-  // }
+  function handleSearch(event) {
+    event.preventDefault();
+    // search for a city
+  }
+
+  function handleCitySubmission(event) {}
 
   if (weatherData.ready) {
     return (

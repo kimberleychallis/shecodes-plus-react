@@ -10,7 +10,7 @@ export default function App() {
     <div className="container">
       <div className="App">
         <div className="app shadow-lg">
-          <Search />
+          <Search defaultCity="London" />
 
           <Forecast />
 
