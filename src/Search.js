@@ -8,29 +8,6 @@ export default function Search(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
-  const searchForm = (
-    <form className="Search" onSubmit={handleSearch}>
-      <div className="input-group">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter a city"
-          aria-label="User's city"
-          aria-describedby="button-addon2"
-          required
-        />
-        <div className="input-group-append">
-          <button className="btn search-city" type="submit">
-            <i className="fas fa-search"></i>
-          </button>
-          <button className="btn geolocate" type="button">
-            <i className="fas fa-map-marker-alt"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-  );
-
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -45,31 +22,53 @@ export default function Search(props) {
     });
   }
 
-  function handleSearch(event) {
-    event.preventDefault();
-    // search for a city
+  function search() {
+    const apiKey = `3e11ec91583e0c90e17fc5eef84e88aa`;
+    const apiURLCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?`;
+    const apiSearchString = `${apiURLCurrentWeather}q=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiSearchString).then(handleResponse);
   }
 
-  function handleCitySubmission(event) {}
+  function handleSearch(event) {
+    event.preventDefault();
+    search(city);
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
 
   if (weatherData.ready) {
     return (
       <div>
-        <div>{searchForm}</div>
-
+        <form className="Search" onSubmit={handleSearch}>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter a city"
+              aria-label="User's city"
+              aria-describedby="button-addon2"
+              onChange={handleCityChange}
+              required
+            />
+            <div className="input-group-append">
+              <button className="btn search-city" type="submit">
+                <i className="fas fa-search"></i>
+              </button>
+              <button className="btn geolocate" type="button">
+                <i className="fas fa-map-marker-alt"></i>
+              </button>
+            </div>
+          </div>
+        </form>
         <div>
           <CurrentWeather data={weatherData} />
         </div>
       </div>
     );
   } else {
-    const city = `Ealing`; // need to set from actual form
-    const apiKey = `3e11ec91583e0c90e17fc5eef84e88aa`;
-    const apiURLCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?`;
-    const apiSearchString = `${apiURLCurrentWeather}q=${city}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiSearchString).then(handleResponse);
-
-    return searchForm;
+    search();
   }
 }
