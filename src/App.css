@@ -4,7 +4,7 @@ body {
 }
 
 .app {
-  background-color: pink;
+  background: linear-gradient(to right top, #6f86d6 0%, #48c6ef 100%);
   border-radius: 1.25rem;
   border: 4px solid whitesmoke;
   margin: 1.75rem auto 1rem auto;
