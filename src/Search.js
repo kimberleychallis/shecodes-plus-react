@@ -9,10 +9,16 @@ export default function Search(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
+    const dateTime = new Date(
+      (response.data.dt + response.data.timezone) * 1000
+    );
+    const hour = dateTime.getHours();
+
     setWeatherData({
       ready: true,
       name: response.data.name,
-      dateTime: (response.data.dt + response.data.timezone) * 1000,
+      dateTime: dateTime,
+      hour: hour,
       temperature: response.data.main.temp,
       feelsLike: response.data.main.feels_like,
       description: response.data.weather[0].description,

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 
-export default function Icon({ weatherID }) {
+export default function Icon({ weatherID, hour }) {
   if (weatherID >= 200 && weatherID < 300) {
     // thunderstorms
     return <i class="fas fa-bolt"></i>;
@@ -17,7 +17,7 @@ export default function Icon({ weatherID }) {
         icon="SLEET"
         color="#8989ba"
         size={250}
-        animate="true"
+        animate={true}
       />
     );
     // weatherIcon.style.color = "#8989ba";
@@ -32,7 +32,7 @@ export default function Icon({ weatherID }) {
         icon="RAIN"
         color="#325A8F"
         size={250}
-        animate="true"
+        animate={true}
       />
     );
 
@@ -47,7 +47,7 @@ export default function Icon({ weatherID }) {
         icon="SNOW"
         color="#7ABBE0"
         size={250}
-        animate="true"
+        animate={true}
       />
     );
     // weatherIcon.style.color = "#7ABBE0";
@@ -62,7 +62,7 @@ export default function Icon({ weatherID }) {
         icon="FOG"
         color="#939395"
         size={250}
-        animate="true"
+        animate={true}
       />
     );
     // weatherIcon.style.color = "#939395";
@@ -77,7 +77,7 @@ export default function Icon({ weatherID }) {
         icon="WIND"
         color="#626266"
         size={250}
-        animate="true"
+        animate={true}
       />
     );
     // weatherIcon.style.color = "#626266";
@@ -87,29 +87,53 @@ export default function Icon({ weatherID }) {
     //   "linear-gradient(to right top, #9D9EA3 0%, #BDBBBE 100%)";
   } else if (weatherID === 800) {
     // clear
-    return (
-      <ReactAnimatedWeather
-        icon="CLEAR_DAY"
-        color="#6f86d6"
-        size={250}
-        animate="true"
-      />
-    );
+
+    if (hour > 7 && hour < 19) {
+      return (
+        <ReactAnimatedWeather
+          icon="CLEAR_DAY"
+          color="#6f86d6"
+          size={250}
+          animate={true}
+        />
+      );
+    } else {
+      return (
+        <ReactAnimatedWeather
+          icon="CLEAR_NIGHT"
+          color="#6f86d6"
+          size={250}
+          animate={true}
+        />
+      );
+    }
 
     // cityName.style.color = "#6f86d6";
     // currentTemperature.style.color = "#6f86d6";
     // app.style.backgroundImage =
     //   "linear-gradient(to right top, #6f86d6 0%, #48c6ef 100%)";
   } else if (weatherID >= 801 && weatherID <= 803) {
-    // light clouds
-    return (
-      <ReactAnimatedWeather
-        icon="PARTLY_CLOUDY_DAY"
-        color="#7496CD"
-        size={250}
-        animate="true"
-      />
-    );
+    // partly cloudy
+
+    if (hour > 7 && hour < 19) {
+      return (
+        <ReactAnimatedWeather
+          icon="PARTLY_CLOUDY_DAY"
+          color="#7496CD"
+          size={238}
+          animate={true}
+        />
+      );
+    } else {
+      return (
+        <ReactAnimatedWeather
+          icon="PARTLY_CLOUDY_NIGHT"
+          color="#7496CD"
+          size={238}
+          animate={true}
+        />
+      );
+    }
 
     // cityName.style.color = "#7496CD";
     // currentTemperature.style.color = "#7496CD";
@@ -122,7 +146,7 @@ export default function Icon({ weatherID }) {
         icon="CLOUDY"
         color="#486FB6"
         size={250}
-        animate="true"
+        animate={true}
       />
     );
 

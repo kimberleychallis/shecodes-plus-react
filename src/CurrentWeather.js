@@ -21,7 +21,7 @@ export default function CurrentWeather(props) {
 
         <div className="col-2">
           <div className="current-weather-icon">
-            <Icon weatherID={props.data.icon} />
+            <Icon weatherID={props.data.icon} hour={props.data.hour} />
           </div>
         </div>
       </div>
