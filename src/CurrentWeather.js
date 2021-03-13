@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import Icon from "./Icon";
 
 import "./CurrentWeather.css";
 
@@ -20,7 +21,7 @@ export default function CurrentWeather(props) {
 
         <div className="col-2">
           <div className="current-weather-icon">
-            <i className="fas fa-sun"></i>
+            <Icon weatherID={props.data.icon} />
           </div>
         </div>
       </div>
