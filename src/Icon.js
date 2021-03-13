@@ -129,7 +129,7 @@ export default function Icon({ weatherID, hour }) {
         <ReactAnimatedWeather
           icon="PARTLY_CLOUDY_NIGHT"
           color="#7496CD"
-          size={238}
+          size={260}
           animate={true}
         />
       );
