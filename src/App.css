@@ -18,3 +18,25 @@ body {
   margin-bottom: 2rem;
   text-align: center;
 }
+
+/* Switch Units */
+
+.SwitchUnits {
+  cursor: pointer;
+}
+
+.SwitchUnits h4 {
+  font-size: 0.75rem;
+  text-align: center;
+  color: white;
+  font-weight: 300;
+  border-radius: 1.25rem;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  transition: 200ms;
+  letter-spacing: 0.05rem;
+}
+
+.SwitchUnits h4:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

@@ -1,7 +1,6 @@
 import Search from "./Search";
 
 import Forecast from "./Forecast";
-import SwitchUnits from "./SwitchUnits";
 
 import "./App.css";
 
@@ -10,11 +9,19 @@ export default function App() {
     <div className="container">
       <div className="App">
         <div className="app shadow-lg">
-          <Search defaultCity="London" />
+          <Search defaultCity="London" unit="metric" />
 
           <Forecast />
 
-          <SwitchUnits />
+          <div className="SwitchUnits">
+            <div className="row">
+              <div className="col">
+                <h4>
+                  <i className="fas fa-sync-alt"></i> switch to fahrenheit
+                </h4>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="source">
