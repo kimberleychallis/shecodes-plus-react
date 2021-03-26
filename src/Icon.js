@@ -1,16 +1,10 @@
 import React from "react";
-// @ts-ignore
 import ReactAnimatedWeather from "react-animated-weather";
 
 export default function Icon({ weatherID, hour }) {
   if (weatherID >= 200 && weatherID < 300) {
     // thunderstorms
     return <i class="fas fa-bolt"></i>;
-    // weatherIcon.style.color = "#321575";
-    // cityName.style.color = "#321575";
-    // currentTemperature.style.color = "#321575";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #321575 0%, #8D0B93 50%, #FF057C 100%)";
   } else if (weatherID >= 300 && weatherID < 500) {
     // drizzle
     return (
@@ -21,11 +15,6 @@ export default function Icon({ weatherID, hour }) {
         animate={true}
       />
     );
-    // weatherIcon.style.color = "#8989ba";
-    // cityName.style.color = "#8989ba";
-    // currentTemperature.style.color = "#8989ba";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #8989ba 0%, #a7a6cb 100%)";
   } else if (weatherID >= 500 && weatherID < 600) {
     // rain
     return (
@@ -36,11 +25,6 @@ export default function Icon({ weatherID, hour }) {
         animate={true}
       />
     );
-
-    // cityName.style.color = "#325A8F";
-    // currentTemperature.style.color = "#325A8F";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #330867 0%, #30cfd0 100%)";
   } else if (weatherID >= 600 && weatherID < 700) {
     // snow
     return (
@@ -51,11 +35,6 @@ export default function Icon({ weatherID, hour }) {
         animate={true}
       />
     );
-    // weatherIcon.style.color = "#7ABBE0";
-    // cityName.style.color = "#7ABBE0";
-    // currentTemperature.style.color = "#7ABBE0";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #c8d7e0 0%, #d7e7f0 100%)";
   } else if (weatherID >= 700 && weatherID < 762) {
     // 'atmosphere'
     return (
@@ -66,11 +45,6 @@ export default function Icon({ weatherID, hour }) {
         animate={true}
       />
     );
-    // weatherIcon.style.color = "#939395";
-    // cityName.style.color = "#939395";
-    // currentTemperature.style.color = "#939395";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #B0B1B4 0%, #C3C4C8 52%, #dcdddf 100%)";
   } else if (weatherID === 771 || weatherID === 781) {
     //windy af
     return (
@@ -81,11 +55,6 @@ export default function Icon({ weatherID, hour }) {
         animate={true}
       />
     );
-    // weatherIcon.style.color = "#626266";
-    // cityName.style.color = "#626266";
-    // currentTemperature.style.color = "#626266";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #9D9EA3 0%, #BDBBBE 100%)";
   } else if (weatherID === 800) {
     // clear
 
@@ -108,11 +77,6 @@ export default function Icon({ weatherID, hour }) {
         />
       );
     }
-
-    // cityName.style.color = "#6f86d6";
-    // currentTemperature.style.color = "#6f86d6";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #6f86d6 0%, #48c6ef 100%)";
   } else if (weatherID >= 801 && weatherID <= 803) {
     // partly cloudy
 
@@ -135,11 +99,6 @@ export default function Icon({ weatherID, hour }) {
         />
       );
     }
-
-    // cityName.style.color = "#7496CD";
-    // currentTemperature.style.color = "#7496CD";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #bbcae2 0%, #dee9f6 100%)";
   } else if (weatherID === 804) {
     // cloudy
     return (
@@ -150,11 +109,6 @@ export default function Icon({ weatherID, hour }) {
         animate={true}
       />
     );
-
-    // cityName.style.color = "#486FB6";
-    // currentTemperature.style.color = "#486FB6";
-    // app.style.backgroundImage =
-    //   "linear-gradient(to right top, #6a85b6 0%, #bac8e0 100%)";
   } else {
     return "";
   }
