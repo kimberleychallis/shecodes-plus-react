@@ -1,6 +1,5 @@
 import React from "react";
 import Search from "./Search";
-import Forecast from "./Forecast";
 
 import "./App.css";
 
@@ -94,8 +93,6 @@ export default function App() {
         <div className="App">
           <div className="app shadow-lg">
             <Search defaultCity="London" unit="metric" />
-
-            <Forecast />
 
             <div className="SwitchUnits">
               <div className="row">
