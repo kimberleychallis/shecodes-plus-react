@@ -75,7 +75,6 @@ export default function Search(props) {
         <div>
           <CurrentWeather data={weatherData} />
         </div>
-
         <Forecast
           latitude={weatherData.latitude}
           longitude={weatherData.longitude}
