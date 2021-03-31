@@ -28,7 +28,11 @@ export default function Forecast(props) {
 
   return (
     <div>
-      <DayForecast data={forecast} />
+      <DayForecast data={forecast} index={0} />
+      <DayForecast data={forecast} index={1} />
+      <DayForecast data={forecast} index={2} />
+      <DayForecast data={forecast} index={3} />
+      <DayForecast data={forecast} index={4} />
     </div>
   );
 
