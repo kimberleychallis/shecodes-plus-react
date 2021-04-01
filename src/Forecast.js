@@ -5,10 +5,10 @@ import DayForecast from "./DayForecast";
 import "./Forecast.css";
 
 export default function Forecast(props) {
-  const [forecast, setForecast] = useState({});
+  const [forecast, setForecast] = useState({ isLoaded: false, data: {} });
 
   const apiKey = "3e11ec91583e0c90e17fc5eef84e88aa";
-  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.latitude}&lon=${props.longitude}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.latitude}&lon=${props.longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
 
   useEffect(() => {
     console.log("the API has been called");
@@ -16,19 +16,25 @@ export default function Forecast(props) {
 
     function handleResponse(response) {
       // console.log(response.data);
-      setForecast(response.data);
+      setForecast({ ready: true, data: response.data });
     }
+
+    return function cleanup() {
+      setForecast({ ready: false });
+    };
   }, [apiUrl]);
 
-  return (
-    <div>
-      <DayForecast data={forecast} day={0} />
-      {/* <DayForecast data={forecast} day={1} />
-      <DayForecast data={forecast} day={2} />
-      <DayForecast data={forecast} day={3} />
-      <DayForecast data={forecast} day={4} /> */}
-    </div>
-  );
+  if (forecast.ready) {
+    return (
+      <div>
+        <DayForecast forecast={forecast} day={0} />
+        <DayForecast forecast={forecast} day={1} />
+        <DayForecast forecast={forecast} day={2} />
+        <DayForecast forecast={forecast} day={3} />
+        <DayForecast forecast={forecast} day={4} />
+      </div>
+    );
+  } else return null;
 
   // ⬇️ FUNCTIONALITY WITHOUT HOOKS
 

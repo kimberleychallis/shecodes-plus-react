@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
-import Icon from "./Icon";
+// import Icon from "./Icon";
 
 export default function DayForecast(props) {
   const [minTemperature, setMinTemperature] = useState(0);
   const [maxTemperature, setMaxTemperature] = useState(0);
+  // const [iconCode, setIconCode] = useState();
+  // const [day, setDay] = useState();
 
   useEffect(() => {
-    // setMinTemperature(Math.round(props.data.daily[props.day].temp.min));
-    // setMaxTemperature(Math.round(props.data.daily[props.day].temp.max));
+    setMinTemperature(
+      Math.round(props.forecast.data.daily[props.day].temp.min)
+    );
+    setMaxTemperature(
+      Math.round(props.forecast.data.daily[props.day].temp.max)
+    );
+
     console.log("Effect has run");
   }, []);
 
