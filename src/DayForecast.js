@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-// import Icon from "./Icon";
+import ForecastIcon from "./ForecastIcon";
 
 export default function DayForecast(props) {
   const [minTemperature, setMinTemperature] = useState(0);
   const [maxTemperature, setMaxTemperature] = useState(0);
-  // const [iconCode, setIconCode] = useState();
+  const [iconCode, setIconCode] = useState();
   // const [day, setDay] = useState();
 
   useEffect(() => {
@@ -14,6 +14,7 @@ export default function DayForecast(props) {
     setMaxTemperature(
       Math.round(props.forecast.data.daily[props.day].temp.max)
     );
+    setIconCode(props.forecast.data.daily[props.day].weather[0].id);
 
     // console.log("Effect has run");
   }, [props.day, props.forecast.data.daily]);
@@ -25,7 +26,8 @@ export default function DayForecast(props) {
           <h3>Name of day</h3>
         </div>
         <div className="col-2 icon">
-          {/* <Icon weatherID={800} hour={16} /> */}Icon
+          {/* <Icon weatherID={800} hour={16} /> */}
+          <ForecastIcon iconCode={iconCode} />
         </div>
         <div className="col-1 d-flex justify-content-center min-max">
           <span className="max">{maxTemperature}</span>
