@@ -11,20 +11,20 @@ export default function Forecast(props) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.latitude}&lon=${props.longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
 
   useEffect(() => {
-    console.log("the API has been called");
+    // console.log("the API has been called");
     axios.get(apiUrl).then(handleResponse);
 
     function handleResponse(response) {
       // console.log(response.data);
-      setForecast({ ready: true, data: response.data });
+      setForecast({ isLoaded: true, data: response.data });
     }
 
     return function cleanup() {
-      setForecast({ ready: false });
+      setForecast({ isLoaded: false });
     };
   }, [apiUrl]);
 
-  if (forecast.ready) {
+  if (forecast.isLoaded) {
     return (
       <div>
         <DayForecast forecast={forecast} day={0} />

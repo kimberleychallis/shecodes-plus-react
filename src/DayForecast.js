@@ -15,7 +15,7 @@ export default function DayForecast(props) {
       Math.round(props.forecast.data.daily[props.day].temp.max)
     );
 
-    console.log("Effect has run");
+    // console.log("Effect has run");
   }, []);
 
   return (
