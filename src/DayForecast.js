@@ -16,7 +16,7 @@ export default function DayForecast(props) {
     );
 
     // console.log("Effect has run");
-  }, []);
+  }, [props.day, props.forecast.data.daily]);
 
   return (
     <div className="Forecast">
