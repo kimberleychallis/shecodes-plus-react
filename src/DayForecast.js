@@ -15,8 +15,6 @@ export default function DayForecast(props) {
       Math.round(props.forecast.data.daily[props.day].temp.max)
     );
     setIconCode(props.forecast.data.daily[props.day].weather[0].id);
-
-    // console.log("Effect has run");
   }, [props.day, props.forecast.data.daily]);
 
   return (
@@ -26,7 +24,6 @@ export default function DayForecast(props) {
           <h3>Name of day</h3>
         </div>
         <div className="col-2 icon">
-          {/* <Icon weatherID={800} hour={16} /> */}
           <ForecastIcon iconCode={iconCode} />
         </div>
         <div className="col-1 d-flex justify-content-center min-max">
