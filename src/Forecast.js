@@ -27,11 +27,11 @@ export default function Forecast(props) {
   if (forecast.isLoaded) {
     return (
       <div>
-        <DayForecast forecast={forecast} day={0} />
         <DayForecast forecast={forecast} day={1} />
         <DayForecast forecast={forecast} day={2} />
         <DayForecast forecast={forecast} day={3} />
         <DayForecast forecast={forecast} day={4} />
+        <DayForecast forecast={forecast} day={5} />
       </div>
     );
   } else return null;

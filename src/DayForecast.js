@@ -5,7 +5,23 @@ export default function DayForecast(props) {
   const [minTemperature, setMinTemperature] = useState(0);
   const [maxTemperature, setMaxTemperature] = useState(0);
   const [iconCode, setIconCode] = useState();
-  // const [day, setDay] = useState();
+  const [day, setDay] = useState();
+
+  // Could move this into its own component but not sure it's worth it
+  function getNameOfDay(timestamp) {
+    const dayOfWeek = new Date(timestamp).getDay();
+    const daysOfTheWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    return daysOfTheWeek[dayOfWeek];
+  }
 
   useEffect(() => {
     setMinTemperature(
@@ -15,13 +31,14 @@ export default function DayForecast(props) {
       Math.round(props.forecast.data.daily[props.day].temp.max)
     );
     setIconCode(props.forecast.data.daily[props.day].weather[0].id);
+    setDay(getNameOfDay(props.forecast.data.daily[props.day].dt * 1000));
   }, [props.day, props.forecast.data.daily]);
 
   return (
     <div className="Forecast">
       <div className="row justify-content-center">
         <div className="col-6">
-          <h3>Name of day</h3>
+          <h3>{day}</h3>
         </div>
         <div className="col-2 icon">
           <ForecastIcon iconCode={iconCode} />
