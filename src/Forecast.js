@@ -5,32 +5,38 @@ import DayForecast from "./DayForecast";
 import "./Forecast.css";
 
 export default function Forecast(props) {
-  // const [loaded, setLoaded] = useState(false);
-  const [forecast, setForecast] = useState({});
+  const [forecast, setForecast] = useState({ isLoaded: false, data: {} });
+
   const apiKey = "3e11ec91583e0c90e17fc5eef84e88aa";
   const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.latitude}&lon=${props.longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
 
-  function handleResponse(response) {
-    // console.log(response.data);
-    setForecast(response.data);
-    // setLoaded(true);
-  }
-
   useEffect(() => {
-    // console.log(apiUrl);
+    // console.log("the API has been called");
     axios.get(apiUrl).then(handleResponse);
-  });
 
-  // useEffect(() => {
-  //   console.log("forecast has updated");
-  //   return <DayForecast data={forecast} />;
-  // }, [forecast]);
+    function handleResponse(response) {
+      // console.log(response.data);
+      setForecast({ isLoaded: true, data: response.data });
+    }
 
-  return (
-    <div>
-      <DayForecast data={forecast} />
-    </div>
-  );
+    return function cleanup() {
+      setForecast({ isLoaded: false });
+    };
+  }, [apiUrl]);
+
+  if (forecast.isLoaded) {
+    return (
+      <div>
+        <DayForecast forecast={forecast} day={1} />
+        <DayForecast forecast={forecast} day={2} />
+        <DayForecast forecast={forecast} day={3} />
+        <DayForecast forecast={forecast} day={4} />
+        <DayForecast forecast={forecast} day={5} />
+      </div>
+    );
+  } else return null;
+
+  // ⬇️ FUNCTIONALITY WITHOUT HOOKS
 
   // if (!loaded) {
   //   const apiKey = "3e11ec91583e0c90e17fc5eef84e88aa";
