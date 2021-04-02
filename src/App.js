@@ -94,7 +94,7 @@ export default function App() {
           <div className="app shadow-lg">
             <Search defaultCity="London" unit="metric" />
 
-            <div className="SwitchUnits">
+            {/* <div className="SwitchUnits">
               <div className="row">
                 <div className="col">
                   <h4>
@@ -102,7 +102,7 @@ export default function App() {
                   </h4>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="source">
