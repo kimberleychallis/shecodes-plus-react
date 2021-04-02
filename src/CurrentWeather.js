@@ -1,6 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
-import Icon from "./Icon";
+import Icon from "./CurrentWeatherIcon";
 
 import "./CurrentWeather.css";
 

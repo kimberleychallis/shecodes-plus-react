@@ -36,6 +36,8 @@ export default function Search(props) {
     const apiURLCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?`;
     const apiSearchString = `${apiURLCurrentWeather}q=${city}&appid=${apiKey}&units=${props.unit}`;
 
+    // console.log(apiSearchString);
+
     axios.get(apiSearchString).then(handleResponse);
   }
 
