@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ForecastIcon from "./ForecastIcon";
 
 export default function DayForecast(props) {
-  const [minTemperature, setMinTemperature] = useState(0);
-  const [maxTemperature, setMaxTemperature] = useState(0);
-  const [iconCode, setIconCode] = useState();
-  const [day, setDay] = useState();
+  const minTemperature = Math.round(props.forecast.temp.min);
+  const maxTemperature = Math.round(props.forecast.temp.max);
+  const iconCode = props.forecast.weather[0].id;
+  const day = getNameOfDay(props.forecast.dt * 1000);
 
   // Could move this into its own component but not sure it's worth it
   function getNameOfDay(timestamp) {
@@ -22,18 +22,6 @@ export default function DayForecast(props) {
 
     return daysOfTheWeek[dayOfWeek];
   }
-
-  useEffect(() => {
-    setMinTemperature(Math.round(props.forecast.temp.min));
-    setMaxTemperature(Math.round(props.forecast.temp.max));
-    setIconCode(props.forecast.weather[0].id);
-    setDay(getNameOfDay(props.forecast.dt * 1000));
-  }, [
-    props.forecast.dt,
-    props.forecast.temp.max,
-    props.forecast.temp.min,
-    props.forecast.weather,
-  ]);
 
   return (
     <div className="Forecast">
