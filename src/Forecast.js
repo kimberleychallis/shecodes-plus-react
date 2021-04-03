@@ -11,17 +11,13 @@ export default function Forecast(props) {
   const apiKey = "3e11ec91583e0c90e17fc5eef84e88aa";
   const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.latitude}&lon=${props.longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
 
+  const handleResponse = (response) => {
+    setForecast(response.data.daily);
+    setIsLoaded(true);
+  };
+
   useEffect(() => {
     axios.get(apiUrl).then(handleResponse);
-
-    function handleResponse(response) {
-      setForecast(response.data.daily);
-      setIsLoaded(true);
-    }
-
-    // return function cleanup() {
-    //   setIsLoaded(false);
-    // };
   }, [apiUrl]);
 
   if (isLoaded) {
@@ -29,6 +25,7 @@ export default function Forecast(props) {
       <div>
         {forecast.map((dailyForecast, index) => {
           if (index > 0 && index < 6) {
+            // because I only want the next five days
             return (
               <div key={index}>
                 <DayForecast forecast={dailyForecast} />
