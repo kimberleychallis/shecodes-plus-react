@@ -1,12 +1,8 @@
 body {
   background-color: whitesmoke;
   font-family: "Nunito", sans-serif;
+  color: white;
 }
-
-/* .center {
-  margin: 50vh auto 0;
-  transform: translateY(-50%);
-} */
 
 .app {
   background: linear-gradient(to right top, #6f86d6 0%, #48c6ef 100%);

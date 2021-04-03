@@ -7,7 +7,7 @@ import "./Search.css";
 
 export default function Search(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState("London");
 
   function handleResponse(response) {
     const dateTime = new Date(
@@ -34,14 +34,14 @@ export default function Search(props) {
   function search() {
     const apiKey = `3e11ec91583e0c90e17fc5eef84e88aa`;
     const apiURLCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?`;
-    const apiSearchString = `${apiURLCurrentWeather}q=${city}&appid=${apiKey}&units=${props.unit}`;
+    const apiSearchString = `${apiURLCurrentWeather}q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiSearchString).then(handleResponse);
   }
 
   function handleSearch(event) {
     event.preventDefault();
-    search(city);
+    search();
   }
 
   function handleCityChange(event) {
@@ -66,9 +66,6 @@ export default function Search(props) {
               <button className="btn search-city" type="submit">
                 <i className="fas fa-search"></i>
               </button>
-              {/* <button className="btn geolocate" type="button">
-                <i className="fas fa-map-marker-alt"></i>
-              </button> */}
             </div>
           </div>
         </form>
