@@ -24,15 +24,16 @@ export default function DayForecast(props) {
   }
 
   useEffect(() => {
-    setMinTemperature(
-      Math.round(props.forecast.data.daily[props.day].temp.min)
-    );
-    setMaxTemperature(
-      Math.round(props.forecast.data.daily[props.day].temp.max)
-    );
-    setIconCode(props.forecast.data.daily[props.day].weather[0].id);
-    setDay(getNameOfDay(props.forecast.data.daily[props.day].dt * 1000));
-  }, [props.day, props.forecast.data.daily]);
+    setMinTemperature(Math.round(props.forecast.temp.min));
+    setMaxTemperature(Math.round(props.forecast.temp.max));
+    setIconCode(props.forecast.weather[0].id);
+    setDay(getNameOfDay(props.forecast.dt * 1000));
+  }, [
+    props.forecast.dt,
+    props.forecast.temp.max,
+    props.forecast.temp.min,
+    props.forecast.weather,
+  ]);
 
   return (
     <div className="Forecast">
