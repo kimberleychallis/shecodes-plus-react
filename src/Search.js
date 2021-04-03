@@ -66,9 +66,9 @@ export default function Search(props) {
               <button className="btn search-city" type="submit">
                 <i className="fas fa-search"></i>
               </button>
-              <button className="btn geolocate" type="button">
+              {/* <button className="btn geolocate" type="button">
                 <i className="fas fa-map-marker-alt"></i>
-              </button>
+              </button> */}
             </div>
           </div>
         </form>
